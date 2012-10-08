@@ -1,0 +1,29 @@
+<%
+  js_bundle :registration
+  jammit_css :registration
+  js_env :USER => {
+    :LOGIN_HANDLE_NAME => (@domain_root_account.login_handle_name rescue AccountAuthorizationConfig.default_login_handle_name),
+    :MIN_AGE => User.self_enrollment_min_age
+  }
+%>
+<% content_for :head do %>
+  <%= include_stylesheets :common, :media => "all" %>
+<% end %>
+
+<div id="registration_header">
+  <div class="registration-content">
+    <h1><a href="http://class.seamolec.org">ZK.apps</a></h1>
+    <a id="registration_login" href="/login">Login</a>
+  </div>
+</div>
+
+<div id="registration_content">
+  <div class="registration-content">
+    <div id="registration_options">
+      <h2>Sign up now, it's free!</h2>  
+      <a href="#" id="signup_teacher" class="signup_link" data-template="teacherDialog" title="Teacher Signup">I'm a Teacher</a>
+      <a href="#" id="signup_student" class="signup_link" data-template="studentDialog" title="Student Signup">I'm a Student</a>
+      <a href="#" id="signup_parent" class="signup_link" data-template="parentDialog" title="Parent Signup">Parents sign up here</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<% content_for :page_title do %><%= t :page_title, "Syllabus for %{course}", :course => @context.name %><% end %>
+<% content_for :right_side do %>
+  <%= render :partial => 'assignments/syllabus_right_side' %>
+<% end %>
+
+<%
+  js_bundle :syllabus
+  jammit_css :tinymce
+%>
+<%= render :partial => 'assignments/syllabus_content' %>
